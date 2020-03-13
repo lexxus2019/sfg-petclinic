@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/owners")
-public class OwnerController {
+public class OwnersController {
 
     private final OwnerService ownerService;
 
-    public OwnerController(OwnerService ownerService) {
+    public OwnersController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
 
@@ -19,5 +19,10 @@ public class OwnerController {
     public String listOwners(Model model){
         model.addAttribute("owners", ownerService.findAll());
         return "owners/index";
+    }
+
+    @RequestMapping("/find")
+    public String findOwners() {
+        return "notimplemented";
     }
 }
